@@ -1,0 +1,242 @@
+/**
+ * Post Filter for Block Editor — style.css
+ *
+ * Styles for both the frontend block output and the editor preview.
+ * All selectors are scoped under .pfbe-* to avoid theme conflicts.
+ *
+ * @package PostFilterBlockEditor
+ */
+
+/* =============================================================================
+   Filter bar
+   ============================================================================= */
+
+.pfbe-filter-bar {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px 14px;
+	margin-bottom: 28px;
+}
+
+.pfbe-filter-label {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: inherit;
+	white-space: nowrap;
+}
+
+.pfbe-select {
+	appearance: none;
+	-webkit-appearance: none;
+	background-color: #ffffff;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555555' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 12px center;
+	background-size: 12px;
+	border: 1.5px solid #c9c9c9;
+	border-radius: 6px;
+	padding: 8px 38px 8px 12px;
+	font-size: 0.875rem;
+	color: #1e1e1e;
+	cursor: pointer;
+	min-width: 160px;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pfbe-select:hover {
+	border-color: #999999;
+}
+
+.pfbe-select:focus {
+	outline: none;
+	border-color: #2271b1;
+	box-shadow: 0 0 0 2px rgba( 34, 113, 177, 0.25 );
+}
+
+.pfbe-select:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* =============================================================================
+   Posts grid
+   ============================================================================= */
+
+.pfbe-posts-list {
+	display: grid;
+	grid-template-columns: repeat( auto-fill, minmax( 280px, 1fr ) );
+	gap: 24px;
+	transition: opacity 0.2s ease;
+}
+
+.pfbe-posts-list.pfbe-loading {
+	opacity: 0.45;
+	pointer-events: none;
+}
+
+/* =============================================================================
+   Post card
+   ============================================================================= */
+
+.pfbe-post-card {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	background: #ffffff;
+	border: 1px solid #e5e5e5;
+	border-radius: 10px;
+	padding: 22px 24px;
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.pfbe-post-card:hover {
+	box-shadow: 0 6px 20px rgba( 0, 0, 0, 0.09 );
+	transform: translateY( -2px );
+}
+
+/* Card header */
+.pfbe-post-header {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+/* Post title */
+.pfbe-post-title {
+	font-size: 1.05rem;
+	font-weight: 700;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.pfbe-post-title a {
+	color: #1e1e1e;
+	text-decoration: none;
+}
+
+.pfbe-post-title a:hover,
+.pfbe-post-title a:focus {
+	color: #2271b1;
+	text-decoration: underline;
+}
+
+/* Difficulty badge */
+.pfbe-badge {
+	display: inline-block;
+	align-self: flex-start;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	padding: 3px 10px;
+	border-radius: 20px;
+}
+
+.pfbe-badge--easy {
+	background-color: #d1fae5;
+	color: #065f46;
+}
+
+.pfbe-badge--medium {
+	background-color: #fef3c7;
+	color: #78350f;
+}
+
+.pfbe-badge--hard {
+	background-color: #fee2e2;
+	color: #7f1d1d;
+}
+
+/* Post excerpt */
+.pfbe-post-excerpt {
+	font-size: 0.9rem;
+	line-height: 1.65;
+	color: #555555;
+	margin: 0;
+	flex: 1 1 auto;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+/* Card footer */
+.pfbe-post-footer {
+	margin-top: auto;
+}
+
+.pfbe-read-more {
+	display: inline-flex;
+	align-items: center;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #2271b1;
+	text-decoration: none;
+	gap: 4px;
+	transition: color 0.15s ease;
+}
+
+.pfbe-read-more:hover,
+.pfbe-read-more:focus {
+	color: #135e96;
+	text-decoration: underline;
+}
+
+/* =============================================================================
+   Empty & error states
+   ============================================================================= */
+
+.pfbe-no-posts,
+.pfbe-error {
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: 40px 24px;
+	border-radius: 10px;
+	font-size: 0.9375rem;
+	border: 1.5px dashed #d0d0d0;
+	color: #666666;
+}
+
+.pfbe-error {
+	background-color: #fff5f5;
+	border-color: #fca5a5;
+	color: #7f1d1d;
+}
+
+/* =============================================================================
+   Editor preview wrapper
+   ============================================================================= */
+
+.pfbe-editor-preview {
+	border: 1.5px dashed #b0b0b0;
+	border-radius: 8px;
+	padding: 4px;
+	min-height: 80px;
+}
+
+.pfbe-editor-loading {
+	padding: 20px;
+	text-align: center;
+	color: #888888;
+	font-size: 0.875rem;
+}
+
+/* =============================================================================
+   Responsive
+   ============================================================================= */
+
+@media ( max-width: 600px ) {
+	.pfbe-posts-list {
+		grid-template-columns: 1fr;
+	}
+
+	.pfbe-filter-bar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.pfbe-select {
+		width: 100%;
+	}
+}
