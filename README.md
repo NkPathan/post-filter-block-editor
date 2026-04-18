@@ -126,7 +126,6 @@ Yes. All CSS classes are prefixed with `pfbe-` and the stylesheet (`style.css`) 
 * Registers `difficulty_level` custom post meta.
 * Block with server-side rendering and `ServerSideRender` editor preview.
 * Custom REST API route `/wp-json/pfbe/v1/posts`.
-* Live AJAX dropdown filter on the frontend.
 * BEM-scoped CSS with Easy / Medium / Hard badge colours.
 * Supports multiple block instances per page.
 
